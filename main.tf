@@ -1,3 +1,21 @@
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "=3.0.0"
+    }
+  }
+}
+
+provider "azurerm" {
+  features {}
+}
+
+resource "azurerm_resource_group" "example" {
+  name     = "api-rg-pro"
+  location = "West Europe"
+}
+
 resource "azurerm_public_ip" "loadip" {
   name                = "TestPublicIp1"
   resource_group_name = azurerm_resource_group.example.name
@@ -74,5 +92,10 @@ resource "azurerm_lb_rule" "lbrule" {
   ]
 }
 
+
+
+
+
+vnet ke sath load balancer create k backend pool m interface id ko mention kr dena
 
 
